@@ -24,7 +24,7 @@ GORICA.power(n, model, nsim, p, B, H1, M, Omega_pop)
 \item{Omega_pop}{The matrix of variances-covariances of the  population parameters}
 }
 \value{
-The GORICA power and the GORICA weights
+The GORICA power, the GORICA weights, mean of the estimates, loklik.weights, and penalty.weights
 }
 \description{
 Calculate the GORICA power
