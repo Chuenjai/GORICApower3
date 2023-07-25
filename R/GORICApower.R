@@ -945,7 +945,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmUnconstrained, H1,  comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
           # Store output
 
@@ -1113,7 +1113,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
           # Store output
 
           GORICA.weights[simteller,] <- goricaResults1$result[,7]
@@ -1293,7 +1293,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
           # Store output
 
@@ -1474,7 +1474,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
         if (all(eigen(vcov)$values > 1e-10)) {
 
           eigen<-eigen(vcov)$values > 1e-10
-          goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
           # Store output
 
           GORICA.weights[simteller,] <- goricaResults1$result[,7]
@@ -2423,7 +2423,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmUnconstrainedsim, H1,  comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
           # Store output
 
@@ -2614,7 +2614,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
           # Store output
 
@@ -2822,7 +2822,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
           # Store output
 
@@ -3043,7 +3043,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
         if (all(eigen(vcov)$values > 1e-10)) {
 
           eigen<-eigen(vcov)$values > 1e-10
-          goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
           # Store output
 
           GORICA.weights[simteller,] <- goricaResults1$result[,7]
@@ -3579,7 +3579,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha3","beta3", "alpha2","beta2", "delta3", "gamma3", "delta2", "gamma2")
     vcov <- lavInspect(riclpmUnconstrained, "vcov.std.nox")[c(10:17), c(10:17)]
 
-    goricaResults1 <- goric(riclpmUnconstrained, H1,  comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -3669,7 +3669,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha4", "beta4", "alpha3", "beta3", "alpha2", "beta2",  "delta4", "gamma4", "delta3", "gamma3", "delta2", "gamma2")
     vcov<-lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(12:23), c(12:23)]
 
-    goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -3769,7 +3769,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha5", "beta5", "alpha4", "beta4", "alpha3", "beta3", "alpha2", "beta2",  "delta5", "gamma5",  "delta4", "gamma4", "delta3", "gamma3", "delta2", "gamma2")
     vcov <- lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(14:29), c(14:29)]
 
-    goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -3872,7 +3872,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha6", "beta6", "alpha5", "beta5", "alpha4", "beta4", "alpha3", "beta3", "alpha2", "beta2",  "delta6", "gamma6",  "delta5", "gamma5",  "delta4", "gamma4", "delta3", "gamma3", "delta2", "gamma2")
     vcov<-lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(16:35), c(16:35)]
 
-    goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -4435,7 +4435,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha3", "beta3", "phi3", "alpha2", "beta2", "phi2", "delta3", "gamma3", "psi3", "delta2", "gamma2", "psi2", "tau3", "epsilon3", "chi3", "tau2", "epsilon2", "chi2")
     vcov <- lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(16:33), c(16:33)]
 
-    goricaResults1 <- goric(riclpmUnconstrainedsim, H1,  comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -4548,7 +4548,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha4", "beta4", "phi4", "alpha3", "beta3", "phi3", "alpha2", "beta2", "phi2", "delta4", "gamma4", "psi4", "delta3", "gamma3", "psi3", "delta2", "gamma2", "psi2", "tau4", "epsilon4", "chi4", "tau3", "epsilon3", "chi3", "tau2", "epsilon2", "chi2")
     vcov <- lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(19:45), c(19:45)]
 
-    goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -4676,7 +4676,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha5", "beta5", "phi5", "alpha4", "beta4", "phi4", "alpha3", "beta3", "phi3", "alpha2", "beta2", "phi2", "delta5", "gamma5", "psi5",  "delta4", "gamma4", "psi4", "delta3", "gamma3", "psi3", "delta2", "gamma2", "psi2", "tau5", "epsilon5", "chi5", "tau4", "epsilon4", "chi4", "tau3", "epsilon3", "chi3", "tau2", "epsilon2", "chi2")
     vcov<-lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(22:57), c(22:57)]
 
-    goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
@@ -4819,7 +4819,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha6", "beta6", "phi6", "alpha5", "beta5", "phi5", "alpha4", "beta4", "phi4", "alpha3", "beta3", "phi3", "alpha2", "beta2", "phi2",  "delta6", "gamma6", "psi6", "delta5", "gamma5", "psi5", "delta4", "gamma4", "psi4", "delta3", "gamma3", "psi3", "delta2", "gamma2", "psi2", "tau6", "epsilon6", "chi6", "tau5", "epsilon5", "chi5", "tau4", "epsilon4", "chi4", "tau3", "epsilon3", "chi3", "tau2", "epsilon2", "chi2")
     vcov <- lavInspect(riclpmUnconstrainedsim, "vcov.std.nox")[c(25:69), c(25:69)]
 
-    goricaResults1 <- goric(riclpmConstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
