@@ -21,5 +21,4 @@ Selecting the RI-CLPM
 }
 \examples{
 Model(n = 3, model = 2, M = 6)
-
 }

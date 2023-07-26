@@ -21,7 +21,7 @@ library(roxygen2)
 #' @return The review of the image of the model
 #' @examples
 #' Model(n = 3, model = 2, M = 6)
-#'
+#' @import magick
 #' @export
 Model <- function(n, model, M) {
 
@@ -151,6 +151,10 @@ Model <- function(n, model, M) {
 #' @examples
 #' H1 <- "abs(beta6) < abs(gamma6); abs(phi6) < abs(epsilon6); abs(psi6) < abs(chi6); abs(beta5) < abs(gamma5); abs(phi5) < abs(epsilon5); abs(psi5) < abs(chi5); abs(beta4) < abs(gamma4); abs(phi4) < abs(epsilon4); abs(psi4) < abs(chi4); abs(beta3) < abs(gamma3); abs(phi3) < abs(epsilon3); abs(psi3) < abs(chi3); abs(beta2) < abs(gamma2); abs(phi2) < abs(epsilon2); abs(psi2) < abs(chi2)"
 #' GORICA.power(n = 3, model = 2, M = 6, nsim = 3, p = 100, B = matrix(c(0.22, 0.1, 0.1, 0.4, 0.28, 0.1, 0.4, 0.4, 0.28),byrow = T, 3), H1, Omega_pop <- matrix(c(1, 0, 0, 0, 1, 0, 0, 0, 1), byrow = T, ncol = 3))
+#' @import MASS
+#' @import tsDyn
+#' @import lavaan
+#' @import restriktor
 #' @export
 GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
@@ -3145,9 +3149,15 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 #' @return The GORICA results, the estimates and the variances - covariances matrix of the estimates
 #' @examples
 #' data <- load_github_data("https://github.com/Chuenjai/GORICApower3/blob/master/data3v4w.RData")
+#'
 #' RICLPMdata <- as.data.frame(RICLPMdata)  # make sure that the dataset is in the form of data.frame
+#'
 #' H1 <- "abs(beta4) < abs(gamma4); abs(phi4) < abs(epsilon4); abs(psi4) < abs(chi4); abs(beta3) < abs(gamma3); abs(phi3) < abs(epsilon3); abs(psi3) < abs(chi3); abs(beta2) < abs(gamma2); abs(phi2) < abs(epsilon2); abs(psi2) < abs(chi2)"
+#'
 #' GORICA.test(n = 3, model = 2, M = 4, data, H1)
+#' @import Rfssa
+#' @import lavaan
+#' @import restriktor
 #' @export
 
 GORICA.test <- function(n, model, M, data, H1) {
