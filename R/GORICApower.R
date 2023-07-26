@@ -1621,7 +1621,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
                                      auto.cov.y = F,
                                      auto.var = F)
 
-      warning <- any(is.na(summary(riclpmConstrainedsim, standardized = T)[1]$PE[c(10:24,34:69),]))
+      warning <- any(is.na(parameterEstimates(riclpmConstrainedsim, standardized = T))[c(10:24,34:69),])
       notposdef <- any(eigen(lavInspect(riclpmConstrainedsim, "cov.lv"))$values <= 1e-8)#*
 
       if(warning == TRUE) {
@@ -3584,7 +3584,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
 
-  specific4measureBi <- function(data, H1,  M, Omega_pop) {
+  specific4measureBi <- function(data, H1) {
 
     print("The bivariate RI-CLPM for wave-specific parameters model with 4 measurement occasions is generating")
 
@@ -3880,7 +3880,7 @@ GORICA.test <- function(n, model, M, data, H1) {
 
   ############# Wave-independent parameters model in a tri-variate model ################################################
 
-  independ3measureTri <- function(nsim, p, B, H1,  M, Omega_pop) {
+  independ3measureTri <- function(data, H1) {
 
     print("The Trivariate RI-CLPM for wave-independent parameters model with 3 measurement occasions is generating")
 
