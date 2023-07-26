@@ -24,7 +24,7 @@ The GORICA results, the estimates and the variances - covariances matrix of the 
 Evaluate hypothesis using the GORICA
 }
 \examples{
-data <- load_github_data("https://github.com/Chuenjai/GORICApower3/blob/master/data3v4w.Rdata")
+data <- load_github_data("https://github.com/Chuenjai/GORICApower3/blob/master/data3v4w.RData")
 RICLPMdata <- as.data.frame(RICLPMdata)  # make sure that the dataset is in the form of data.frame
 H1 <- "abs(beta4) < abs(gamma4); abs(phi4) < abs(epsilon4); abs(psi4) < abs(chi4); abs(beta3) < abs(gamma3); abs(phi3) < abs(epsilon3); abs(psi3) < abs(chi3); abs(beta2) < abs(gamma2); abs(phi2) < abs(epsilon2); abs(psi2) < abs(chi2)"
 GORICA.test(n = 3, model = 2, M = 4, data, H1)
