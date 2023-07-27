@@ -10,7 +10,8 @@ library(roxygen2)
 #usethis::use_mit_license()
 #usethis::use_r("GORICApower")
 #roxygenise();      # Builds the help files
-#devtools::document()
+#devtools::document() #Don't use this
+#usethis::use_package("MASS", "tsDyn", "lavaan", "restriktor", "magick", "Rfssa", type = "Depends") #Don't use this
 ######################################################################################################################
 #' Model
 #'
