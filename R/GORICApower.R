@@ -950,7 +950,7 @@ GORICA.power <- function(n, model, nsim, p, B, H1,  M, Omega_pop) {
 
           eigen<-eigen(vcov)$values > 1e-10
 
-          goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+          goricaResults1 <- goric(riclpmUnconstrained, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
           # Store output
 
@@ -3591,7 +3591,7 @@ GORICA.test <- function(n, model, M, data, H1) {
     names(est1) <- c("alpha3","beta3", "alpha2","beta2", "delta3", "gamma3", "delta2", "gamma2")
     vcov <- lavInspect(riclpmUnconstrained, "vcov.std.nox")[c(10:17), c(10:17)]
 
-    goricaResults1 <- goric(riclpmUnconstrainedsim, hypotheses = list(H1), comparison = "complement", type = "gorica")
+    goricaResults1 <- goric(riclpmUnconstrained, hypotheses = list(H1), comparison = "complement", type = "gorica")
 
     return(list(GORICA = goricaResults1, estimates = est1, vcov = vcov))
   }
