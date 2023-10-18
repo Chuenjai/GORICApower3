@@ -3,7 +3,7 @@
 #library(lavaan) # to call riclpmModel
 #library(restriktor) # to call GORICA
 #library(magick) # read model image
-library(Rfssa) #download data from github
+#library(Rfssa) #download data from github
 
 library(devtools)
 library(roxygen2) # to call roxygenise()
